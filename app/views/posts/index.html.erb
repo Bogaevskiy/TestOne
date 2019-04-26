@@ -1,0 +1,16 @@
+<h3><%= link_to "Написать", new_post_path %>
+<%= link_to "Оценка по ID", idgrade_path %> 
+<%= link_to "Топ постов", poststop_path %> 
+<%= link_to "Групповые адреса", groups_path %>  </h3>
+<hr>
+
+
+<% @post.each do |post| %>
+	<h2><%= link_to post.name, post_path(post) %></h2>
+	От пользователя "<%= post.user.name %>"<br>
+	С адреса <%= post.address %><br>
+	<%= post.content %><br>
+	<hr>
+<% end %>
+
+<%= will_paginate @post %>

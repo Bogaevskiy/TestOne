@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20190425132930_add_average_to_grades.rb

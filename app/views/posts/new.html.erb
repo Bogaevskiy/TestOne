@@ -1,0 +1,16 @@
+<h2>Написать новый пост</h2>
+
+<%= form_for(@post, format: :json) do |f| %>
+	<%= f.fields_for(@user, format: :json) do |a| %>
+		<p> Ваше имя <br>
+		<%= a.text_field :name %></p>
+	<% end %>	
+	
+	<p> Название поста <br>
+		<%= f.text_field :name %>	</p>
+	<p> Текст <br>
+		<%= f.text_area :content %>	</p>
+	<p> <%= f.submit "Запостить" %> </p>
+<% end %><br>
+
+<%= link_to "На главную", posts_path %>

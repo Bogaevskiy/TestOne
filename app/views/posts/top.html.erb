@@ -1,0 +1,5 @@
+<h2>50 лучших постов</h2><br>
+<% @post.each do |post| %>
+ <%= post.name %> - <%= post.grade.average %><br>
+<% end %>
+

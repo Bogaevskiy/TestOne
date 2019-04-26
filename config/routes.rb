@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  root 'posts#index', as: "home"
+
+  resources :posts
+  post 'posts/new' => 'posts#create'
+
+  post 'posts/:id' => 'posts#grade'
+  
+  get '/idgrade' => 'posts#idgrade', as: 'idgrade'
+  post '/idgrade' => 'posts#idgrade_value'
+
+  get '/poststop' => 'posts#top', as: 'poststop'
+  get '/groups' => 'posts#groups', as: 'groups'
+ 
 end

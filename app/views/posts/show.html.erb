@@ -1,0 +1,18 @@
+<h2><%= @post.name %></h2>
+От пользователя "<%= @post.user.name %>"<br>
+С адреса <%= @post.address %><br><br>
+
+<%= @post.content %><br><br>
+
+Ваша оценка:
+<%= form_for :grade, data: { type: :json } do |f| %>
+	<%= f.select :value, [1, 2, 3, 4, 5] %>
+	<%= f.submit "Оценить" %> 
+<% end %>
+
+<% if @post.grade != nil %>
+Все оценки: <%= @post.grade.value.join(' ') %><br>
+<% end %>
+Средняя оценка: <%= @average_grade %><br>
+
+<%= link_to "На главную", posts_path %>

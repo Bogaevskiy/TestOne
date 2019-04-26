@@ -1,0 +1,12 @@
+Ваша оценка по ID:
+<%= form_for :post do |f| %>
+	<p> Номер поста: <br>
+		<%= f.text_field :name %>
+	</p>
+	<%= f.fields_for :grade do |a| %>
+		<%= f.select :value, [1, 2, 3, 4, 5] %>
+	<% end %>
+	<%= f.submit "Оценить" %> 
+<% end %><br>
+
+<%= link_to "На главную", posts_path %>
